@@ -24,11 +24,11 @@ foreach ($sensorsList as $id) {
   $log = [
     '@timestamp' => date('c'),
     'dataSource' => 'Homebridge',
+    'message' => '(see sensorData.*)',
     'sensorData' => array_merge(
       ['name' => $data['accessoryInformation']['Name'] . ' (' . $data['humanType'] . ')'],
       $data['values']
     )
   ];
-  var_dump($log);
   file_put_contents(getRequiredEnv('OBSERVER_LOG_FILE'), json_encode($log) . "\n", FILE_APPEND);
 }
