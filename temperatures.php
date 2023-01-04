@@ -21,10 +21,14 @@ $sensorsList = [
 
 foreach ($sensorsList as $id) {
   $data = $bridge->getAccessory($id);
-  $log = array_merge(
-    ['@timestamp' => date('c')],
-    ['name' => $data['accessoryInformation']['Name'] . ' (' . $data['humanType'] . ')'],
-    $data['values']
-  );
+  $log = [
+    '@timestamp' => date('c'),
+    'dataSource' => 'Homebridge',
+    'sensorData' => array_merge(
+      ['name' => $data['accessoryInformation']['Name'] . ' (' . $data['humanType'] . ')'],
+      $data['values']
+    )
+  ];
+  var_dump($log);
   file_put_contents(getRequiredEnv('OBSERVER_LOG_FILE'), json_encode($log) . "\n", FILE_APPEND);
 }
