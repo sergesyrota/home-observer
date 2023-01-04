@@ -26,5 +26,5 @@ foreach ($sensorsList as $id) {
     ['name' => $data['accessoryInformation']['Name'] . ' (' . $data['humanType'] . ')'],
     $data['values']
   );
-  file_put_contents(getRequiredEnv('OBSERVER_LOG_FILE'), $log, FILE_APPEND);
+  file_put_contents(getRequiredEnv('OBSERVER_LOG_FILE'), json_encode($log), FILE_APPEND);
 }
