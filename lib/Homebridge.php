@@ -16,7 +16,7 @@ class Homebridge
   function homebridgeReq($path, $method = 'GET', $data = null) {
     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, getRequiredEnv('HOMEBRIDGE_PATH') . $path);
+    curl_setopt($ch, CURLOPT_URL, rtrim(getRequiredEnv('HOMEBRIDGE_PATH'), '/') . $path);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, ($method == 'POST' ? 1 : 0));
     if ($data !== null) {
