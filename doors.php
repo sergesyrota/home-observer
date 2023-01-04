@@ -18,6 +18,7 @@ function removePidFile() {
 register_shutdown_function('removePidFile');
 // END CRON setup
 
+require_once __DIR__ . '/lib.php';
 require_once '/var/www/home/dashboard/include/rs485.php';
 $rs = new rs485;
 
@@ -29,9 +30,9 @@ $knownState = [
 
 while (true) {
     touch($pidFile);
-    
+
     checkGarage($knownState['garage']);
-    
+
     if ((time() - $start) > 3600*24*7) {
         // Reboot after a week, just in case
         exit();
@@ -81,15 +82,6 @@ function checkGarage(&$oldState) {
     }
 }
 
-function getRequiredEnv($var)
-{
-  $data = getenv($var);
-  if (empty($data)) {
-    throw new Exception("Please specify $var as environment variable to run.");
-  }
-  return $data;
-}
-
 function isProcessRunning($pidFile) {
     if (!file_exists($pidFile) || !is_file($pidFile)) return false;
     $pid = file_get_contents($pidFile);
@@ -121,5 +113,3 @@ function tryCmd($device, $command, $attempts=3) {
     }
     throw $lastException;
 }
-
-
