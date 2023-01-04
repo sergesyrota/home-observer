@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/lib.php';
+
 // CRON setup and re-run protection
 $pidFile = getRequiredEnv('OBSERVER_PID_FILE');
 if (!is_writeable(dirname($pidFile))) {
@@ -18,7 +20,6 @@ function removePidFile() {
 register_shutdown_function('removePidFile');
 // END CRON setup
 
-require_once __DIR__ . '/lib.php';
 require_once '/var/www/home/dashboard/include/rs485.php';
 $rs = new rs485;
 
