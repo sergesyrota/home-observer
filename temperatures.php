@@ -24,7 +24,7 @@ foreach ($sensorsList as $id) {
   $log = array_merge(
     ['@timestamp' => date('c')],
     ['name' => $data['accessoryInformation']['Name'] . ' (' . $data['humanType'] . ')'],
-    $data['values'],
+    $data['values']
   );
   file_put_contents(getRequiredEnv('OBSERVER_LOG_FILE'), $log, FILE_APPEND);
 }
