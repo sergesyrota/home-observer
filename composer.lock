@@ -1,0 +1,118 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "4540977812722466cb5c92429e280029",
+    "packages": [
+        {
+            "name": "mhlavac/gearman",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mhlavac/gearman.git",
+                "reference": "037f09d657da03c7d5d3513b299b4f6a310dff8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mhlavac/gearman/zipball/037f09d657da03c7d5d3513b299b4f6a310dff8e",
+                "reference": "037f09d657da03c7d5d3513b299b4f6a310dff8e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.10",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MHlavac\\Gearman\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "New BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Till Klampaeckel",
+                    "homepage": "http://pear.php.net/user/till"
+                },
+                {
+                    "name": "Brian L. Moon",
+                    "homepage": "http://pear.php.net/user/brianlmoon"
+                },
+                {
+                    "name": "Joe Stump",
+                    "homepage": "http://pear.php.net/user/jstump"
+                },
+                {
+                    "name": "Chris Goffinet",
+                    "homepage": "http://pear.php.net/user/lenn0x"
+                },
+                {
+                    "name": "Martin Hlavac",
+                    "homepage": "http://www.mhlavac.net"
+                }
+            ],
+            "description": "Gearman (http://www.danga.com/gearman) is a system to farm out work to other machines. It can load balance function calls to lots of machines and allows you to call functions between languages. It can also run all function calls in parallel.",
+            "support": {
+                "issues": "https://github.com/mhlavac/gearman/issues",
+                "source": "https://github.com/mhlavac/gearman/tree/0.1.0"
+            },
+            "abandoned": true,
+            "time": "2015-11-02T10:00:34+00:00"
+        },
+        {
+            "name": "sergesyrota/syrota-automation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sergesyrota/SyrotaAutomationPhp.git",
+                "reference": "d5189d77ef9632e201eebd29f9e23604621978c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sergesyrota/SyrotaAutomationPhp/zipball/d5189d77ef9632e201eebd29f9e23604621978c5",
+                "reference": "d5189d77ef9632e201eebd29f9e23604621978c5",
+                "shasum": ""
+            },
+            "require": {
+                "mhlavac/gearman": "@dev"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SyrotaAutomation": "src/"
+                }
+            },
+            "description": "Library to communicate using SyrotaAutomation protocol with home devices over RS-485",
+            "support": {
+                "source": "https://github.com/sergesyrota/SyrotaAutomationPhp/tree/master",
+                "issues": "https://github.com/sergesyrota/SyrotaAutomationPhp/issues"
+            },
+            "time": "2018-02-19T16:01:15+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "sergesyrota/syrota-automation": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

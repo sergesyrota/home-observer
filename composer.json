@@ -1,0 +1,11 @@
+{
+"repositories" : [
+    {
+        "type": "vcs",
+        "url": "https://github.com/sergesyrota/SyrotaAutomationPhp.git"
+    }
+],
+"require": {
+    "sergesyrota/syrota-automation": "dev-master"
+}
+}
