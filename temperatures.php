@@ -51,5 +51,18 @@ foreach ($sensorsList as $id => $param) {
     $fanData = $bridge->getAccessory($param['fanId']);
     $log['sensorData']['fan'] = $fanData['values'];
   }
+  if (!empty($param['equipmentMonitorDevice'])) {
+    try {
+        foreach(['Intake', 'Supply'] as $location) {
+            $temp = $gm->command($param['equipmentMonitorDevice'], 'getTemp' . $location);
+            if (!preg_match('%^[\d\.]{3,}$%', $temp)) {
+                continue;
+            }
+            $log['sensorData']['equipment'][$location.'Temp'] = $temp;
+        }
+    } catch (Exception $e) {
+        // empty on purpose
+    }
+  }
   file_put_contents(getRequiredEnv('OBSERVER_LOG_FILE'), json_encode($log) . "\n", FILE_APPEND);
 }
