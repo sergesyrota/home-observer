@@ -95,7 +95,7 @@ function isProcessRunning($pidFile) {
 }
 
 
-function getGarageDoors($retry=1) {
+function getGarageDoors($retry=3) {
     $data = tryCmd('GarageSens', 'getDoors', $retry);
     return $data;
 }
