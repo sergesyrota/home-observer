@@ -13,14 +13,14 @@ $bridge = new Homebridge();
 $gm = new Gearman('rs485');
 
 $sensorsList = [
-  'df73fc3d023cabe944fed8a9cca976a8954e802f4b53d37e3de2377fe8f9bc7a' => [ // Master bedroom thermostat
-    'fanId' => '18c339c9f54bf17ed622a88e0f300750e21864adc53dc45e484e0475f54a48de'
+  '7fef05bd8517dfda9de22ab331fa6a5a6551b6a023d8f336857ad85ad5f9b094' => [ // Master bedroom thermostat
+    'fanId' => 'ffeea03e649e62f35664e2bc85cf6bcfd70773c4d8fc507a8ed4e5484d75367f'
   ],
-  'dec7abaff62f2c0fd36d74293d9c27238fc5027095797fddec3ab18e6d8648a2' => [ // Sam/Office thermostat
-    'fanId' => '2ae4cf0b077df8fc4ff4f95e4e1dc704094898d3df850464c70be6de11163539'
+  'bc665a815cbb2861581a6a1df5b68379d3b144b2f6ddd97689b34084eaeaf549' => [ // Sam/Office thermostat
+    'fanId' => 'b3154dc5ad8ab74b250c107370ab20943f6d35e6cc68c7f030f45fbe01783f29'
   ],
-  '9298413701c106099aac4eca4b832104f2a3d0d08de970a18e89c034fe1ddea8' => [ // Leah/Kids thermostat
-    'fanId' => '57b720dd90f89d2ce869c04241a1c69acd6ee6a69c28a7601f597bb2b165f30a'
+  'f34c9dec25b46770dbb6a4a1fb421dcf5a3ed99240e1bb018ab55364cde1efc2' => [ // Leah/Kids thermostat
+    'fanId' => '48fab439c600c8ecb7f8ca20c50b2140a0c7ef20e3aedb75102ef5ec93c7a8f5'
   ],
   '89cf8d0c778533abe54027d734ecdc80f2317c92fceb0412379c05bfaf6e1d3f' => [ // Dining room thermostat (shows currently selected temp sensor)
     'fanId' => 'a86ffc334512b803abd5496f632ccc8c0ee154191068abc55c84e7d4d526db48',
@@ -58,7 +58,7 @@ foreach ($sensorsList as $id => $param) {
             if (!preg_match('%^[\d\.]{3,}$%', $temp)) {
                 continue;
             }
-            $log['sensorData']['equipment'][$location.'Temp'] = $temp;
+            $log['sensorData']['equipment'][$location.'Temperature'] = floatval($temp);
         }
     } catch (Exception $e) {
         // empty on purpose
