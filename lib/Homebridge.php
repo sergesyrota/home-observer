@@ -9,6 +9,10 @@ class Homebridge
   function __construct() {
   }
 
+  public function getAccessories() {
+    return $this->homebridgeReq('/api/accessories');
+  }
+
   public function getAccessory($uniqueId) {
     return $this->homebridgeReq('/api/accessories/' . $uniqueId);
   }

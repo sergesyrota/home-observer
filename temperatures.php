@@ -36,6 +36,9 @@ $sensorsList = [
   //'', //
 ];
 
+// Todo, change how this is done
+//$homebridgeAcessories = $bridge->getAccessories();
+
 foreach ($sensorsList as $id => $param) {
   $data = $bridge->getAccessory($id);
   $log = [
@@ -43,7 +46,10 @@ foreach ($sensorsList as $id => $param) {
     'dataSource' => 'Homebridge',
     'message' => '(see sensorData.*)',
     'sensorData' => array_merge(
-      ['name' => $data['accessoryInformation']['Name'] . ' (' . $data['humanType'] . ')'],
+      [
+        'name' => $data['accessoryInformation']['Name'] . ' (' . $data['humanType'] . ')',
+        'serialNumber' => $data['accessoryInformation']['Serial Number'],
+      ],
       $data['values']
     )
   ];
@@ -65,4 +71,14 @@ foreach ($sensorsList as $id => $param) {
     }
   }
   file_put_contents(getRequiredEnv('OBSERVER_LOG_FILE'), json_encode($log) . "\n", FILE_APPEND);
+}
+
+function getDevicesBySerial($serialNumber, $payload) {
+    $deviceList = [];
+    foreach ($payload as $device) {
+        if ($device['accessoryInformation']['Serial Number'] == $serialNumber) {
+            $deviceList[$device['serviceName']] = $device['uniqueId'];
+        }
+    }
+    return $deviceList;
 }
